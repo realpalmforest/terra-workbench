@@ -1,10 +1,10 @@
 import './App.css'
 import { useState } from 'react'
 import Recipe from './components/Recipe'
-import Slider from './components/Slider'
+import Footer from './components/Footer'
 
 function App() {
-  const [recipeScale, setRecipeScale] = useState(85)
+  const [recipeScale, setRecipeScale] = useState(65)
 
   return (
     <>
@@ -14,11 +14,25 @@ function App() {
           <h1>TerraWorkbench</h1>
         </div>
       
-        <Slider scale={recipeScale} changeScale={setRecipeScale} />
+        
 
         <br/>
 
         <div className='recipe-container' style={{zoom: `${recipeScale}%`}}>
+          <Recipe/>
+          <Recipe/>
+          <Recipe/>
+          <Recipe/>
+          <Recipe/>
+          <Recipe/>
+          <Recipe/>
+          <Recipe/>
+          <Recipe/>
+          <Recipe/>
+          <Recipe/>
+          <Recipe/>
+          <Recipe/>
+          <Recipe/>
           <Recipe/>
           <Recipe/>
           <Recipe/>
@@ -39,6 +53,8 @@ function App() {
       <div className='sidebar'>
 
       </div>
+
+      <Footer/>
     </>
   )
 }

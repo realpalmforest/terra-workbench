@@ -1,6 +1,5 @@
 #root {
   margin: 0 auto;
-  padding: 3vw;
   text-align: center;
 
   display: flex;
@@ -12,21 +11,29 @@
 }
 
 .left-side {
+  padding-left: 3vw;
   width: 65%;
 }
 
 .recipe-container {
-  height: 250px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: start;
   flex-wrap: wrap;
   gap: 40px;
+  padding-bottom: 100px;
+  padding-right: 70px;
+
+  max-width: max-content;
+  max-height: 900px;
+  overflow-y: auto;
 }
 
 div.header {
   margin-right: 70px;
+  padding-bottom: 10px;
+
   background-color: #1a1a1a;
 }
 
