@@ -1,0 +1,39 @@
+#root {
+  margin: 0 auto;
+  padding: 3vw;
+  text-align: center;
+
+  display: flex;
+}
+
+.sidebar {
+  width: 35%;
+  background-color: #1a1a1a;
+}
+
+.left-side {
+  width: 65%;
+}
+
+.recipe-container {
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+div.header {
+  margin-right: 70px;
+  background-color: #1a1a1a;
+}
+
+img.icon {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+
+  height: 200px;
+  width: auto;
+}

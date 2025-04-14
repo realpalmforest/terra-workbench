@@ -1,0 +1,20 @@
+{
+    "ironskin": {
+        "name": "Ironskin Potion",
+        "category": "Potion",
+        "ingredients": [
+            "Iron ore",
+            "Daybloom",
+            "Bottled Water"
+        ]
+    },
+    "swiftness": {
+        "name": "Swiftness Potion",
+        "category": "Potion",
+        "ingredients": [
+            "Cactus Block",
+            "Daybloom",
+            "Bottled Water"
+        ]
+    }
+}

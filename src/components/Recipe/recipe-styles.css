@@ -1,0 +1,57 @@
+.recipe {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+
+    display: flex;
+    column-gap: 45px;
+
+    height: 150px;
+    width: auto;
+
+    font-size: 1.5em;
+
+    background-color: #1a1a1a;
+
+    padding: 16px 26px 16px 16px;
+    border-radius: 16px;
+    border: 1px solid transparent;
+
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+.recipe:hover {
+    border-color: #464aa1;
+}
+
+.right {
+    height: 100%;
+    display: grid;
+    row-gap: 50px;
+}
+
+h2.name {
+    margin: 0;
+    overflow: visible;
+    white-space: nowrap;
+}
+
+.ingredients {
+    display: flex;
+    column-gap: 50px;
+}
+
+img {
+    user-select: none;
+}
+
+img.item {
+    height: 100%;
+    width: auto;
+}
+
+img.item-small {
+    transform: scale(2.5);
+    transform-origin: bottom left;
+    object-fit: contain;
+}
