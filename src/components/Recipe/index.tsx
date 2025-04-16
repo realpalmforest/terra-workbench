@@ -1,13 +1,22 @@
+import { recipeDataType } from '../RecipeBrowser'
 import './recipe-styles.css'
 
-function Recipe() {
+function Recipe({recipeData}: {recipeData: recipeDataType}) {
   return (
     <div className='recipe'>
-      <img className='item' src='https://terraria.wiki.gg/images/9/9f/Ironskin_Potion.png?9f322c'/>
+      <img className='item' src={recipeData.url}/>
       <div className='right'>
-        <h2 className='name'>Ironskin Potion</h2>
+        <h2 className='name'>{recipeData.recipeName}</h2>
         <div className='ingredients'>
-          <div>
+          {
+            recipeData.ingredientUrls.map((ingredient) => (
+              <div>
+                <img key={ingredient} className='item-small' src={ingredient}/>
+              </div>
+            ))
+          }
+
+          {/* <div>
             <img className='item-small' src='https://terraria.wiki.gg/images/1/16/Bottled_Water.png?7d5a62'/>
           </div>
           <div>
@@ -15,7 +24,7 @@ function Recipe() {
           </div>
           <div>
             <img className='item-small' src='https://terraria.wiki.gg/images/0/02/Daybloom.png?ba4cbf'/>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@
             "Placed Bottle or Alchemy Table"
         ],
         "ingredients": [
-            "Iron ore",
+            "Iron Ore",
             "Daybloom",
             "Bottled Water"
         ]
@@ -18,7 +18,7 @@
             "Placed Bottle or Alchemy Table"
         ],
         "ingredients": [
-            "Cactus Block",
+            "Cactus",
             "Daybloom",
             "Bottled Water"
         ]
@@ -56,7 +56,7 @@
         "ingredients": [
             "Bottled Water",
             "Deathweed",
-            "Vertebrae or Rotten Chunk"
+            "Rotten Chunk"
         ]
     },
     {
