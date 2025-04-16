@@ -2,9 +2,11 @@ import './App.css'
 import { useState } from 'react'
 import Recipe from './components/Recipe'
 import Footer from './components/Footer'
+import Sidebar from './components/Sidebar'
+import RecipeBrowser from './components/RecipeBrowser'
 
 function App() {
-  const [recipeScale, setRecipeScale] = useState(65)
+  
 
   return (
     <>
@@ -13,46 +15,11 @@ function App() {
           <img className='icon' src='./src/assets/icon.png'/>
           <h1>TerraWorkbench</h1>
         </div>
-      
         
-
-        <br/>
-
-        <div className='recipe-container' style={{zoom: `${recipeScale}%`}}>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-          <Recipe/>
-        </div>
+        <RecipeBrowser/>
       </div>
 
-      <div className='sidebar'>
-
-      </div>
+      <Sidebar/>
 
       <Footer/>
     </>

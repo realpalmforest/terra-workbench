@@ -5,33 +5,15 @@
   display: flex;
 }
 
-.sidebar {
-  width: 35%;
-  background-color: #1a1a1a;
-}
-
 .left-side {
-  padding-left: 3vw;
+  margin-left: 2vw;
+  margin-right: 2vw;
   width: 65%;
 }
 
-.recipe-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: start;
-  flex-wrap: wrap;
-  gap: 40px;
-  padding-right: 70px;
-
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
 .header {
-  margin-right: 70px;
-  padding-bottom: 5px;
-
+  padding-bottom: 30px;
+  margin-bottom: 20px;
   background-color: #1a1a1a;
 }
 
@@ -44,5 +26,5 @@
 }
 
 .header h1 {
-  margin-top: 0px;
+  margin: 0;
 }
