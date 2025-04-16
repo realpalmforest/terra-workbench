@@ -1,11 +1,11 @@
 import './slider-styles.css'
 import { useState } from 'react'
 
-const min: number = 65;
-const max: number = 130;
+const min: number = 30;
+const max: number = 80;
 
 function Slider({ value, changeValue }: { value: number, changeValue: (newValue: number) => void }) {
-const [percentage, setPercentage] = useState(0)
+const [percentage, setPercentage] = useState<number>(0)
   
   return (
     <div className='slider-parent' style={{ '--progress': `${percentage}%` } as React.CSSProperties }>

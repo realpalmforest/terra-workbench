@@ -4,6 +4,7 @@ import './recipe-browser-styles.css'
 import { useEffect, useRef, useState } from 'react'
 
 import recipesJson from '../../data/recipes.json'
+import Slider from '../Slider';
 
 export type recipeDataType = { recipeName: string, url: string | undefined, ingredientUrls: (string | undefined)[] }
 
@@ -16,8 +17,16 @@ function RecipeBrowser() {
     createRecipes();
   }, []);
 
-
   async function createRecipes() {
+    const initialDatas: recipeDataType[] = recipesJson.map(recipe => ({
+      recipeName: recipe.name,
+      url: undefined,
+      ingredientUrls: []
+    }));
+    setRecipeDatas(initialDatas);
+    console.log("initialDatas = ", initialDatas);
+
+
     for (let i = 0; i < recipesJson.length; i++) {
       const recipe = recipesJson[i];
 
@@ -29,11 +38,11 @@ function RecipeBrowser() {
         ingredientUrls.push(await tryGetImageUrl(ingredient));
       }
       
-      const recipeName = recipe.name;
-      const recipeObject = { recipeName, url, ingredientUrls };
-      setRecipeDatas((currentData) => [...currentData, recipeObject]);
+      const recipeObject = initialDatas.find(data => data.recipeName === recipe.name) as recipeDataType;
+      recipeObject.url = url;
+      recipeObject.ingredientUrls = ingredientUrls;
 
-      console.log(recipeObject);
+      setRecipeDatas([...initialDatas]);
     }
   }
 
@@ -48,13 +57,19 @@ function RecipeBrowser() {
   
 
   return (
-    <div className='recipe-browser' style={{zoom: `${recipeScale}%`}}>
-      {
-        recipeDatas.map(recipeData => (
-          <Recipe key={recipeData.recipeName} recipeData={recipeData} />
-        ))
-      }
-    </div>
+    <>
+      {/* TODO: Fix slider or replace with number box
+      <p>Scale</p>
+      <Slider value={recipeScale} changeValue={setRecipeScale} /> */}
+
+      <div className='recipe-browser' style={{zoom: `${recipeScale}%`}}>
+        {
+          recipeDatas.map(recipeData => (
+            <Recipe key={recipeData.recipeName} recipeData={recipeData} />
+          ))
+        }
+      </div>
+    </>
   )
 }
 

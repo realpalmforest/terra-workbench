@@ -12,7 +12,7 @@ function App() {
     <>
       <div className='left-side'>
         <div className='header'>
-          <img className='icon' src='./src/assets/icon.png'/>
+          <img className='icon' src='./public/icon.png'/>
           <h1>TerraWorkbench</h1>
         </div>
         

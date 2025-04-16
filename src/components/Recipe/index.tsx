@@ -15,16 +15,6 @@ function Recipe({recipeData}: {recipeData: recipeDataType}) {
               </div>
             ))
           }
-
-          {/* <div>
-            <img className='item-small' src='https://terraria.wiki.gg/images/1/16/Bottled_Water.png?7d5a62'/>
-          </div>
-          <div>
-            <img className='item-small' src='https://terraria.wiki.gg/images/8/87/Iron_Ore.png?6192ca'/>
-          </div>
-          <div>
-            <img className='item-small' src='https://terraria.wiki.gg/images/0/02/Daybloom.png?ba4cbf'/>
-          </div> */}
         </div>
       </div>
     </div>
