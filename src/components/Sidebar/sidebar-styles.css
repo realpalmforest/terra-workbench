@@ -8,10 +8,10 @@
 
 .tab-container {
     display: flex;
-    align-items: start;
+    justify-content: start;
 }
 
-.tab-container button {
+.tab-button {
     border-radius: 10px 10px 0px 0px;
     transition: background-color 0.25s;
     border-color: var(--light-gray);
@@ -19,14 +19,37 @@
 
     font-weight: bold;
     
+    height: 45px;
 
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
+    
+    overflow: hidden;
+    width: auto;
 }
+
+.tab-button:hover {
+    border-color: #444444;
+}
+
+.tab-button p {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+.tab-icon {
+    padding-top: 2px;
+    height: 17px;
+    width: 17px;
+    flex-shrink: 0;
+}
+
 
 .tab-content {
     background-color: var(--light-gray);
+    border-radius: 0 10px 0 0;
 
     width: 100%;
     height: 100%;

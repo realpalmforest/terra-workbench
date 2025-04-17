@@ -1,17 +1,21 @@
-import { recipeDataType } from '../RecipeBrowser'
+import { recipeData } from '../RecipeBrowser'
 import './recipe-styles.css'
 
-function Recipe({recipeData}: {recipeData: recipeDataType}) {
+function Recipe({recipeData}: {recipeData: recipeData}) {
   return (
     <div className='recipe'>
-      <img className='item' src={recipeData.url}/>
-      <div className='right'>
-        <h2 className='name'>{recipeData.recipeName}</h2>
-        <div className='ingredients'>
+      <div style={{display: "flex"}}>
+        <img className='item-image' src={recipeData.result.imageUrl ?? './src/assets/undefined.gif'}/>
+        <p className='quantity-label'>{recipeData.result.quantity > 1 ? recipeData.result.quantity : ""}</p>
+      </div>
+      <div className='right-container'>
+        <h2 className='name'>{recipeData.result.name}</h2>
+        <div className='ingredients-container'>
           {
-            recipeData.ingredientUrls.map((ingredient) => (
-              <div>
-                <img key={ingredient} className='item-small' src={ingredient}/>
+            recipeData.ingredients.map((ingredient) => (
+              <div style={{display: "flex"}} key={`${recipeData.result.name}.${recipeData.ingredients.indexOf(ingredient)}`} >
+                <img className='ingredient-image' src={ingredient.imageUrl ?? './src/assets/undefined.gif'}/>
+                <p className='quantity-label'>{ingredient.quantity > 1 ? ingredient.quantity : ""}</p>
               </div>
             ))
           }
@@ -22,3 +26,11 @@ function Recipe({recipeData}: {recipeData: recipeDataType}) {
 }
 
 export default Recipe
+
+// function getIngredientQuantityString(ingredientImageUrl: string) {
+//   const split = ingredientImageUrl.split(" ");
+
+//   if(parseInt(split[split.length - 1]) > 1)
+//     return split[split.length - 1];
+//   else return "";
+// }

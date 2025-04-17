@@ -1,11 +1,13 @@
 .recipe-browser {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: start;
     justify-content: start;
     flex-wrap: wrap;
     gap: 40px;
   
     max-height: 90vh;
+
     overflow-y: auto;
+    overflow-x: hidden;
   }

@@ -11,9 +11,18 @@ function Sidebar() {
   return (
     <div className='sidebar'>
       <div className='tab-container'>
-        <button style={activeTab == 0 ? {backgroundColor: "var(--light-gray)"} : {}} onClick={() => setActiveTab(0)} >Details <FaBookOpen style={{paddingTop: "2px"}} /> </button>
-        <button style={activeTab == 1 ? {backgroundColor: "var(--light-gray)"} : {}} onClick={() => setActiveTab(1)} >Calculator <FaCalculator style={{paddingTop: "2px"}} /></button>
-        <button style={activeTab == 2 ? {backgroundColor: "var(--light-gray)"} : {}} onClick={() => setActiveTab(2)} >Options <FaCog style={{paddingTop: "2px"}} /> </button>
+        <button className='tab-button' style={activeTab == 0 ? {backgroundColor: "var(--light-gray)"} : {}} onClick={() => setActiveTab(0)} >
+          <FaBookOpen className='tab-icon'/>
+          <p>Details</p>
+        </button>
+        <button className='tab-button' style={activeTab == 1 ? {backgroundColor: "var(--light-gray)"} : {}} onClick={() => setActiveTab(1)} >
+          <FaCalculator className='tab-icon'/>
+          <p>Calculator</p>
+        </button>
+        <button className='tab-button' style={activeTab == 2 ? {backgroundColor: "var(--light-gray)"} : {}} onClick={() => setActiveTab(2)} > 
+          <FaCog className='tab-icon' />
+          <p>Options</p>
+        </button>
       </div>
       <div className='tab-content'>
         {activeTab === 0 && (

@@ -1,0 +1,270 @@
+{
+    "name": "Swiftness Potion",
+    "category": "Potion",
+    "workstations": [ 
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Cactus",
+        "Daybloom",
+        "Bottled Water"
+    ]
+},
+{
+    "name": "Ammo Reservation Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Double Cod",
+        "Moonglow"
+    ]
+},
+{
+    "name": "Archery Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Daybloom",
+        "Lens"
+    ]
+},
+{
+    "name": "Battle Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Deathweed",
+        "Rotten Chunk"
+    ]
+},
+{
+    "name": "Builder Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Blinkroot",
+        "Shiverthorn"
+    ]
+},
+{
+    "name": "Calming Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Damselfish",
+        "Daybloom"
+    ]
+},
+{
+    "name": "Crate Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Amber",
+        "Moonglow",
+        "Shiverthorn"
+    ]
+},
+{
+    "name": "Dangersense Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Shiverthorn",
+        "Cobweb"
+    ]
+},
+{
+    "name": "Endurance Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Armored Cavefish",
+        "Blinkroot"
+    ]
+},
+{
+    "name": "Fishing Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Crispy Honey Block",
+        "Waterleaf"
+    ]
+},
+{
+    "name": "Gills Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Coral",
+        "Waterleaf"
+    ]
+},
+{
+    "name": "Gravitation Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Feather",
+        "Blinkroot",
+        "Fireblossom"
+    ]
+},
+{
+    "name": "Heartreach Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Crimson Tigerfish",
+        "Daybloom"
+    ]
+},
+{
+    "name": "Hunter Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Blinkroot",
+        "Shark Fin"
+    ]
+},
+{
+    "name": "Inferno Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Flarefin Koi",
+        "Obsidian",
+        "Fireblossom"
+    ]
+},
+{
+    "name": "Invisibility Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Blinkroot",
+        "Moonglow"
+    ]
+},
+{
+    "name": "Lifeforce Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Prismite",
+        "Moonglow",
+        "Shiverthorn"
+    ]
+},
+{
+    "name": "Mana Regeneration Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Fallen Star",
+        "Moonglow",
+        "Daybloom"
+    ]
+},
+{
+    "name": "Night Owl Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Blinkroot",
+        "Daybloom"
+    ]
+},
+{
+    "name": "Obsidian Skin Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Obsidian",
+        "Fireblossom",
+        "Waterleaf"
+    ]
+},
+{
+    "name": "Rage Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Hemopiranha",
+        "Deathweed"
+    ]
+},
+{
+    "name": "Regeneration Potion",
+    "category": "Potion",
+    "workstations": [
+        "Placed Bottle or Alchemy Table"
+    ],
+    "ingredients": [
+        "Bottled Water",
+        "Mushroom",
+        "Daybloom"
+    ]
+}

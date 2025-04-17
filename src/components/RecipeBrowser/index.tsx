@@ -6,11 +6,12 @@ import { useEffect, useRef, useState } from 'react'
 import recipesJson from '../../data/recipes.json'
 import Slider from '../Slider';
 
-export type recipeDataType = { recipeName: string, url: string | undefined, ingredientUrls: (string | undefined)[] }
+export type recipeData = { result: item, ingredients: item[] }
+export type item = { name: string, quantity: number, imageUrl: string | undefined }
 
 function RecipeBrowser() {
   const [recipeScale, setRecipeScale] = useState<number>(65);
-  const [recipeDatas, setRecipeDatas] = useState<recipeDataType[]>([]);
+  const [recipeDatas, setRecipeDatas] = useState<recipeData[]>([]);
   const imgUrlsMapRef = useRef<Map<string, string>>(new Map<string, string>);
 
   useEffect(() => {
@@ -18,10 +19,13 @@ function RecipeBrowser() {
   }, []);
 
   async function createRecipes() {
-    const initialDatas: recipeDataType[] = recipesJson.map(recipe => ({
-      recipeName: recipe.name,
-      url: undefined,
-      ingredientUrls: []
+    const initialDatas: recipeData[] = recipesJson.map(recipe => ({
+      result: {
+        name: recipe.result.name,
+        quantity: 0,
+        imageUrl: undefined
+      },
+      ingredients: []
     }));
     setRecipeDatas(initialDatas);
     console.log("initialDatas = ", initialDatas);
@@ -30,17 +34,30 @@ function RecipeBrowser() {
     for (let i = 0; i < recipesJson.length; i++) {
       const recipe = recipesJson[i];
 
-      const url = await tryGetImageUrl(recipe.name);
-      const ingredientUrls = [];
+      const result: item = {
+        name: recipe.result.name,
+        quantity: recipe.result.quantity,
+        imageUrl: await tryGetImageUrl(recipe.result.name)
+      };
 
+      const ingredients: item[] = [
+
+      ];
+
+      // Loop through all ingredients and get image urls
       for (let i = 0; i < recipe.ingredients.length; i++) {
         const ingredient = recipe.ingredients[i];
-        ingredientUrls.push(await tryGetImageUrl(ingredient));
+
+        ingredients.push({
+          name: ingredient.name,
+          quantity: ingredient.quantity,
+          imageUrl: await tryGetImageUrl(ingredient.name)
+        });
       }
       
-      const recipeObject = initialDatas.find(data => data.recipeName === recipe.name) as recipeDataType;
-      recipeObject.url = url;
-      recipeObject.ingredientUrls = ingredientUrls;
+      const recipeObject = initialDatas.find(data => data.result.name === recipe.result.name) as recipeData;
+      recipeObject.result = result;
+      recipeObject.ingredients = ingredients;
 
       setRecipeDatas([...initialDatas]);
     }
@@ -65,7 +82,7 @@ function RecipeBrowser() {
       <div className='recipe-browser' style={{zoom: `${recipeScale}%`}}>
         {
           recipeDatas.map(recipeData => (
-            <Recipe key={recipeData.recipeName} recipeData={recipeData} />
+            <Recipe key={recipeData.result.name} recipeData={recipeData} />
           ))
         }
       </div>
