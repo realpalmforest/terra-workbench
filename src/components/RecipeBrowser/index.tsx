@@ -79,7 +79,7 @@ function RecipeBrowser() {
       <p>Scale</p>
       <Slider value={recipeScale} changeValue={setRecipeScale} /> */}
 
-      <div className='recipe-browser' style={{zoom: `${recipeScale}%`}}>
+      <div className='recipe-browser'>
         {
           recipeDatas.map(recipeData => (
             <Recipe key={recipeData.result.name} recipeData={recipeData} />

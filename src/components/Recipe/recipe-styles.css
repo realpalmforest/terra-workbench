@@ -3,16 +3,17 @@
     image-rendering: crisp-edges;
 
     display: flex;
-    column-gap: 45px;
+    column-gap: 40px;
 
-    height: 150px;
+    height: 65px;
     width: auto;
-
-    font-size: 1.5em;
+    
+    text-align: start;
+    font-size: 0.9em;
 
     background-color: #1a1a1a;
 
-    padding: 16px 50px 16px 30px;
+    padding: 20px 25px 20px 20px;
     border-radius: 16px;
     border: 1px solid transparent;
 
@@ -20,17 +21,18 @@
     transition: border-color 0.25s;
 }
 
+.recipe h2 {
+    margin-top: -10px;
+}
+
 .recipe:hover {
     border-color: #464aa1;
 }
 
-.right-container {
+.right-recipe-side {
     display: flex;
     flex-direction: column;
-    row-gap: 30px;
-
-    height: 100%;
-    width: auto;
+    row-gap: 10px;
 }
 
 .name {
@@ -41,9 +43,7 @@
 
 .ingredients-container {
     display: flex;
-    column-gap: 40px;
-
-    width: auto;
+    column-gap: 30px;
 }
 
 img {
@@ -56,27 +56,28 @@ img {
 }
 
 .ingredient-image {
-    height: 60px;
+    height: 35px;
     width: auto;
 }
 
 .quantity-label {
     font-weight: bold;
+    font-size: 1.15em;
+
     text-shadow: #000 5px 5px 5px;
     -webkit-font-smoothing: antialiased;
 
     z-index: 10;
     user-select: none;
 
-    margin-left: -10px;
-    margin-top: 25px;
-
-    font-size: 38px;
+    align-self: flex-end;
+    margin-bottom: -9px;
+    margin-left: -4px;
 }
 
-.item-image .quantity-label {
-    margin-top: 90px;
+.left-recipe-side .quantity-label {
+    margin-bottom: -15px;
     margin-left: -10px;
 
-    font-size: 50px;
+    font-size: 1.75em;
 }
