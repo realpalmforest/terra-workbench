@@ -1,9 +1,9 @@
 import './App.css'
 import { useState } from 'react'
-import Recipe from './components/Recipe'
-import Footer from './components/Footer'
-import Sidebar from './components/Sidebar'
-import RecipeBrowser from './components/RecipeBrowser'
+import Recipe from './components/Recipe/recipe'
+import Footer from './components/Footer/footer'
+import Sidebar from './components/Sidebar/sidebar'
+import RecipeBrowser from './components/RecipeBrowser/recipe-browser'
 
 function App() {
   

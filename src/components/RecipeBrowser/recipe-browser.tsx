@@ -1,21 +1,21 @@
-import Recipe from '../Recipe';
+import Recipe from '../Recipe/recipe';
 import './recipe-browser-styles.css'
 
 import { useEffect, useRef, useState } from 'react'
 
 import recipesJson from '../../data/recipes.json'
-import Slider from '../Slider';
+import Slider from '../Slider/slider';
 
 export type recipeData = { result: item, ingredients: item[] }
 export type item = { name: string, quantity: number, imageUrl: string | undefined }
 
 function RecipeBrowser() {
-  const [recipeScale, setRecipeScale] = useState<number>(65);
   const [recipeDatas, setRecipeDatas] = useState<recipeData[]>([]);
+  const [selectedRecipe, setSelectedRecipe] = useState<recipeData>()
   const imgUrlsMapRef = useRef<Map<string, string>>(new Map<string, string>);
 
   useEffect(() => {
-    createRecipes();
+      createRecipes();  
   }, []);
 
   async function createRecipes() {
@@ -34,15 +34,30 @@ function RecipeBrowser() {
     for (let i = 0; i < recipesJson.length; i++) {
       const recipe = recipesJson[i];
 
+      const saved = localStorage.getItem("recipes") as string;
+      let savedRecipe;
+      if(saved) {
+        savedRecipe = (JSON.parse(saved) as recipeData[]).find(rec => rec.result.name == recipe.result.name);
+      }
+      
+      const recipeObject: recipeData = initialDatas.find(data => data.result.name === recipe.result.name) as recipeData;
+      
+      // If this recipe is saved, load from localStorage
+      if(saved && savedRecipe) {
+        recipeObject.result = savedRecipe.result;
+        recipeObject.ingredients = savedRecipe.ingredients;
+        setRecipeDatas([...initialDatas]);
+        continue;
+      }
+
+
       const result: item = {
         name: recipe.result.name,
         quantity: recipe.result.quantity,
         imageUrl: await tryGetImageUrl(recipe.result.name)
       };
 
-      const ingredients: item[] = [
-
-      ];
+      const ingredients: item[] = [];
 
       // Loop through all ingredients and get image urls
       for (let i = 0; i < recipe.ingredients.length; i++) {
@@ -55,11 +70,18 @@ function RecipeBrowser() {
         });
       }
       
-      const recipeObject = initialDatas.find(data => data.result.name === recipe.result.name) as recipeData;
       recipeObject.result = result;
       recipeObject.ingredients = ingredients;
 
       setRecipeDatas([...initialDatas]);
+      
+      // If no recipes are saved, save only this one
+      if(!saved) {
+        localStorage.setItem("recipes", JSON.stringify([ recipeObject ]));
+      // Otherwise if this one is not saved yet, save it.
+      } else if (!savedRecipe){
+        localStorage.setItem("recipes", JSON.stringify([...JSON.parse(saved), recipeObject]))
+      }
     }
   }
 
@@ -75,21 +97,18 @@ function RecipeBrowser() {
 
   return (
     <>
-      {/* TODO: Fix slider or replace with number box
-      <p>Scale</p>
-      <Slider value={recipeScale} changeValue={setRecipeScale} /> */}
-
       <div className='recipe-browser'>
         {
           recipeDatas.map(recipeData => (
-            <Recipe key={recipeData.result.name} recipeData={recipeData} />
+            <Recipe key={recipeData.result.name} recipeData={recipeData} onClick={() => {
+              setSelectedRecipe(recipeData)
+            }} />
           ))
         }
       </div>
     </>
   )
 }
-
 
 
 async function getItemImageUrl(itemName: string) {
@@ -100,7 +119,7 @@ async function getItemImageUrl(itemName: string) {
     return Object.values(json?.query?.pages)[0]?.imageinfo[0]?.url;
 
   } catch (error) {
-    console.error("Couldn't get image url of item " + itemName, error);
+    console.error(`Couldn't get image url of item "${itemName}"`, error);
   }
 }
 

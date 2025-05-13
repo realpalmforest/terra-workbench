@@ -1,9 +1,9 @@
-import { recipeData } from '../RecipeBrowser'
+import { recipeData } from '../RecipeBrowser/recipe-browser'
 import './recipe-styles.css'
 
-function Recipe({recipeData}: {recipeData: recipeData}) {
+function Recipe({recipeData, onClick}: {recipeData: recipeData, onClick: () => void}) {
   return (
-    <div className='recipe'>
+    <div className='recipe' onClick={() => { onClick() }}>
       <div className='left-recipe-side' style={{display: "flex"}}>
         <img className='item-image' src={recipeData.result.imageUrl ?? './src/assets/undefined.gif'}/>
         <span className='quantity-label'>{recipeData.result.quantity > 1 ? recipeData.result.quantity : ""}</span>
