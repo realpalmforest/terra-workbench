@@ -3,6 +3,9 @@
   text-align: center;
 
   display: flex;
+
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
 .left-side {
@@ -25,9 +28,6 @@
 }
 
 .header .icon {
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-
   height: 175px;
   width: auto;
 }

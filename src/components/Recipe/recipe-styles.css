@@ -1,7 +1,4 @@
 .recipe {
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-
     display: flex;
     column-gap: 40px;
 

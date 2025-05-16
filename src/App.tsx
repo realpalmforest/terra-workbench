@@ -3,10 +3,10 @@ import { useState } from 'react'
 import Recipe from './components/Recipe/recipe'
 import Footer from './components/Footer/footer'
 import Sidebar from './components/Sidebar/sidebar'
-import RecipeBrowser from './components/RecipeBrowser/recipe-browser'
+import RecipeBrowser, { recipeData } from './components/RecipeBrowser/recipe-browser'
 
 function App() {
-  
+  const [selectedRecipe, setSelectedRecipe] = useState<recipeData>();
 
   return (
     <>
@@ -16,10 +16,10 @@ function App() {
           <h1>TerraWorkbench</h1>
         </div>
         
-        <RecipeBrowser/>
+        <RecipeBrowser selectedRecipe={selectedRecipe} setSelectedRecipe={setSelectedRecipe} />
       </div>
 
-      <Sidebar/>
+      <Sidebar selectedRecipe={selectedRecipe} />
 
       <Footer/>
     </>

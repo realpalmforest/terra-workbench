@@ -9,9 +9,8 @@ import Slider from '../Slider/slider';
 export type recipeData = { result: item, ingredients: item[] }
 export type item = { name: string, quantity: number, imageUrl: string | undefined }
 
-function RecipeBrowser() {
+function RecipeBrowser({ selectedRecipe, setSelectedRecipe }: { selectedRecipe: recipeData | undefined, setSelectedRecipe: (newRecipe: recipeData | undefined) => void }) {
   const [recipeDatas, setRecipeDatas] = useState<recipeData[]>([]);
-  const [selectedRecipe, setSelectedRecipe] = useState<recipeData>()
   const imgUrlsMapRef = useRef<Map<string, string>>(new Map<string, string>);
 
   useEffect(() => {

@@ -57,4 +57,10 @@
 
 .tab-content h3 {
     margin: 0;
+    font-size: 1.8em;
+    padding-bottom: 20px;
+}
+
+.tab-content img {
+    height: 80px;
 }

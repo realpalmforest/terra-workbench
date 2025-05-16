@@ -4,8 +4,9 @@ import { useState } from 'react'
 import { FaCog } from "react-icons/fa";
 import { FaCalculator } from "react-icons/fa";
 import { FaBookOpen } from "react-icons/fa";
+import { recipeData } from '../RecipeBrowser/recipe-browser';
 
-function Sidebar() {
+function Sidebar({ selectedRecipe }: { selectedRecipe: recipeData | undefined }) {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
@@ -25,9 +26,11 @@ function Sidebar() {
         </button>
       </div>
       <div className='tab-content'>
-        {activeTab === 0 && (
+        {activeTab === 0 && selectedRecipe && (
           <div>
-            <h3>Details</h3>
+            <h3>{selectedRecipe.result.name}</h3>
+            <img src={selectedRecipe.result.imageUrl} />
+            <p>Some funny info goes here</p>
           </div>
         )}
         {activeTab === 1 && (
@@ -37,7 +40,8 @@ function Sidebar() {
         )}
         {activeTab === 2 && (
           <div>
-            <h3>Under construction</h3>
+            <h3>Options</h3>
+            <span>Cool setting</span>
           </div>
         )}
       </div>
