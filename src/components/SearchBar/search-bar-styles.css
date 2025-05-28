@@ -1,0 +1,13 @@
+.search-bar-container {
+    max-height: 6vh;
+    margin: 2vh 0 2vh 0;
+
+    display: flex;
+    gap: 20px;
+
+    justify-content: center;
+}
+
+.search-bar-container input[type='text'] {
+    width: 300px;
+}

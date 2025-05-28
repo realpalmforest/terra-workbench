@@ -4,10 +4,9 @@ import './recipe-browser-styles.css'
 import { useEffect, useRef, useState } from 'react'
 
 import recipesJson from '../../data/recipes.json'
-import Slider from '../Slider/slider';
 
-export type recipeData = { result: item, ingredients: item[] }
-export type item = { name: string, quantity: number, imageUrl: string | undefined }
+import { recipeData, item, searchParams } from '../../App';
+
 
 function RecipeBrowser({ selectedRecipe, setSelectedRecipe }: { selectedRecipe: recipeData | undefined, setSelectedRecipe: (newRecipe: recipeData | undefined) => void }) {
   const [recipeDatas, setRecipeDatas] = useState<recipeData[]>([]);
