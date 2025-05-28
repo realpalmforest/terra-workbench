@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Footer from './components/Footer/footer'
 import Sidebar from './components/Sidebar/sidebar'
 import SearchBar from './components/SearchBar/search-bar'
@@ -22,7 +22,7 @@ function App() {
         </div>
 
         <SearchBar paramsChanged={(params: searchParams) => {setBrowserParams(params)}}/>
-        <RecipeBrowser selectedRecipe={selectedRecipe} setSelectedRecipe={setSelectedRecipe} />
+        <RecipeBrowser params={browserParams} setSelectedRecipe={setSelectedRecipe} />
       </div>
 
       <Sidebar selectedRecipe={selectedRecipe} />

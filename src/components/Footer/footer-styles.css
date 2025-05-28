@@ -11,13 +11,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    /* padding-left: 5%; */
   }
   
   .footer a {
     color: white;
     margin: 0px 20px 0px 0px;
-    font-size: 1.25em;
+    font-size: 1.4em;
     user-select: none;
   }

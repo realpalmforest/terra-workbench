@@ -8,7 +8,7 @@ import recipesJson from '../../data/recipes.json'
 import { recipeData, item, searchParams } from '../../App';
 
 
-function RecipeBrowser({ selectedRecipe, setSelectedRecipe }: { selectedRecipe: recipeData | undefined, setSelectedRecipe: (newRecipe: recipeData | undefined) => void }) {
+function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, setSelectedRecipe: (newRecipe: recipeData | undefined) => void }) {
   const [recipeDatas, setRecipeDatas] = useState<recipeData[]>([]);
   const imgUrlsMapRef = useRef<Map<string, string>>(new Map<string, string>);
 
@@ -26,7 +26,6 @@ function RecipeBrowser({ selectedRecipe, setSelectedRecipe }: { selectedRecipe: 
       ingredients: []
     }));
     setRecipeDatas(initialDatas);
-    console.log("initialDatas = ", initialDatas);
 
 
     for (let i = 0; i < recipesJson.length; i++) {
@@ -97,7 +96,15 @@ function RecipeBrowser({ selectedRecipe, setSelectedRecipe }: { selectedRecipe: 
     <>
       <div className='recipe-browser'>
         {
-          recipeDatas.map(recipeData => (
+          recipeDatas.filter((data) => {
+            if(params.query.trim() === "") {
+              return true;
+            }
+
+            if(data.result.name.toLocaleLowerCase().includes(params.query.toLocaleLowerCase().trim())) {
+              return true;
+            }
+          }).map(recipeData => (
             <Recipe key={recipeData.result.name} recipeData={recipeData} onClick={() => {
               setSelectedRecipe(recipeData)
             }} />

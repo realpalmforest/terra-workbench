@@ -1,11 +1,18 @@
 .search-bar-container {
+    min-height: 30px;
     max-height: 6vh;
-    margin: 2vh 0 2vh 0;
+    margin: 1.5vh 0 1.5vh 0;
+    padding: 1vh 0 1vh 0;
 
     display: flex;
     gap: 20px;
 
     justify-content: center;
+
+    border-radius: 5px;
+    border: 3px solid #1f1f1f;
+
+    background-image: linear-gradient(rgba(255, 255, 255, 0), #1f1f1f);
 }
 
 .search-bar-container input[type='text'] {
