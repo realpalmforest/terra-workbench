@@ -7,14 +7,16 @@
     display: flex;
     gap: 20px;
 
+    align-items: center;
     justify-content: center;
-
-    border-radius: 5px;
-    border: 3px solid #1f1f1f;
-
-    background-image: linear-gradient(rgba(255, 255, 255, 0), #1f1f1f);
 }
 
 .search-bar-container input[type='text'] {
     width: 300px;
+}
+
+.search-bar-container span {
+    font-size: 1.2em;
+    margin-top: -3px;
+    margin-left: 10px;
 }

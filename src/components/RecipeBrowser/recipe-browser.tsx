@@ -104,6 +104,18 @@ function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, se
             if(data.result.name.toLocaleLowerCase().includes(params.query.toLocaleLowerCase().trim())) {
               return true;
             }
+
+            if(params.ingredients) {
+              for (let i = 0; i < data.ingredients.length; i++) {
+                const ingredient = data.ingredients[i];
+              
+                if(ingredient.name.toLocaleLowerCase().includes(params.query.toLocaleLowerCase().trim())) {
+                  return true;
+                }
+              }
+            }
+
+            return false;
           }).map(recipeData => (
             <Recipe key={recipeData.result.name} recipeData={recipeData} onClick={() => {
               setSelectedRecipe(recipeData)

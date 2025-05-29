@@ -60,6 +60,34 @@ input {
   cursor: text;
 }
 
+.checkbox {
+  height: 40px;
+  width: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-checked {
+  background-color: #646cff;
+
+  -webkit-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.checkbox .checkmark-icon {
+  opacity: 0;
+}
+
+.checkbox-checked .checkmark-icon {
+  min-width: 16px;
+  min-height: 16px;
+
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
