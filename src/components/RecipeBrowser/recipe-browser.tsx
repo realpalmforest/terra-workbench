@@ -1,16 +1,14 @@
 import Recipe from '../Recipe/recipe';
 import './recipe-browser-styles.css'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { recipeData, item, searchParams } from '../../App';
 
 import recipesJson from '../../data/recipes.json'
-
-import { recipeData, item, searchParams } from '../../App';
 
 
 function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, setSelectedRecipe: (newRecipe: recipeData | undefined) => void }) {
   const [recipeDatas, setRecipeDatas] = useState<recipeData[]>([]);
-  const imgUrlsMapRef = useRef<Map<string, string>>(new Map<string, string>);
 
   useEffect(() => {
       createRecipes();  
@@ -20,86 +18,49 @@ function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, se
     const initialDatas: recipeData[] = recipesJson.map(recipe => ({
       result: {
         name: recipe.result.name,
-        quantity: 0,
-        imageUrl: undefined
+        quantity: 0
       },
       ingredients: [],
       id: recipe.id
     }));
+
     setRecipeDatas(initialDatas);
 
 
     for (let i = 0; i < recipesJson.length; i++) {
-      const recipe = recipesJson[i];
-
-      // const saved = localStorage.getItem("recipes") as string;
-      // let savedRecipe;
-      // if(saved) {
-      //   savedRecipe = (JSON.parse(saved) as recipeData[]).find(rec => rec.result.name == recipe.result.name);
-      // }
-      
-      const recipeObject: recipeData = initialDatas.find(data => data.id === recipe.id) as recipeData;
-      
-      // // If this recipe is saved, load from localStorage
-      // if(saved && savedRecipe) {
-      //   recipeObject.result = savedRecipe.result;
-      //   recipeObject.ingredients = savedRecipe.ingredients;
-      //   setRecipeDatas([...initialDatas]);
-      //   continue;
-      // }
-
+      const recipeData = recipesJson[i];
+      const recipe = initialDatas.find(data => data.id === recipeData.id) as recipeData;
 
       const result: item = {
-        name: recipe.result.name,
-        quantity: recipe.result.quantity,
-        imageUrl: await tryGetImageUrl(recipe.result.name)
+        name: recipeData.result.name,
+        quantity: recipeData.result.quantity,
       };
 
-      const ingredients: item[] = [];
+      const ingredients = [];
 
       // Loop through all ingredients and get image urls
-      for (let i = 0; i < recipe.ingredients.length; i++) {
-        const ingredient = recipe.ingredients[i];
+      for (let i = 0; i < recipeData.ingredients.length; i++) {
+        const ingredient = recipeData.ingredients[i];
 
         ingredients.push({
           name: ingredient.name,
           quantity: ingredient.quantity,
-          imageUrl: await tryGetImageUrl(ingredient.name)
         });
       }
       
-      recipeObject.result = result;
-      recipeObject.ingredients = ingredients;
+      recipe.result = result;
+      recipe.ingredients = ingredients;
 
       setRecipeDatas([...initialDatas]);
-      
-      // If no recipes are saved, save only this one
-      // if(!saved) {
-      //   localStorage.setItem("recipes", JSON.stringify([ recipeObject ]));
-      // // Otherwise if this one is not saved yet, save it.
-      // } else if (!savedRecipe){
-      //   localStorage.setItem("recipes", JSON.stringify([...JSON.parse(saved), recipeObject]))
-      // }
     }
   }
-
-  async function tryGetImageUrl(name: string) {
-    // if (!imgUrlsMapRef.current.has(name)) {
-    //   const url = await getItemImageUrl(name);
-    //   imgUrlsMapRef.current.set(name, url);
-    // }
-
-    // return imgUrlsMapRef.current.get(name);
-
-    return `/items/${name}.png`
-  }
   
+  function applySearchParams() {
+    return recipeDatas.filter((data, index) => {
+            if(!params.showAlternatives && index > 0 && data.result.name == recipeDatas[index - 1].result.name) {
+              return false;
+            }
 
-  return (
-    <>
-      <div className='recipe-browser'>
-        {
-          recipeDatas.filter((data) => {
             if(params.query.trim() === "") {
               return true;
             }
@@ -108,7 +69,7 @@ function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, se
               return true;
             }
 
-            if(params.ingredients) {
+            if(params.searchIngredients) {
               for (let i = 0; i < data.ingredients.length; i++) {
                 const ingredient = data.ingredients[i];
               
@@ -119,28 +80,21 @@ function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, se
             }
 
             return false;
-          }).map((recipeData, index) => (
-            <Recipe key={index} recipeData={recipeData} onClick={() => {
-              setSelectedRecipe(recipeData)
-            }} />
-          ))
-        }
-      </div>
-    </>
+          })
+  }
+
+  return (
+    <div className='recipe-browser'>
+      {
+        applySearchParams().map(recipeData => (
+          <Recipe key={recipeData.id} recipeData={recipeData} onClick={() => {
+            setSelectedRecipe(recipeData)
+          }} />
+        ))
+      }
+    </div>
   )
 }
 
-
-async function getItemImageUrl(itemName: string) {
-  try {
-    const response = await fetch( `/api?action=query&titles=File:${itemName.replace(' ', '_')}.png&prop=imageinfo&iiprop=url&format=json`);
-
-    const json = await response.json();
-    return Object.values(json?.query?.pages)[0]?.imageinfo[0]?.url;
-
-  } catch (error) {
-    console.error(`Couldn't get image url of item "${itemName}"`, error);
-  }
-}
 
 export default RecipeBrowser
