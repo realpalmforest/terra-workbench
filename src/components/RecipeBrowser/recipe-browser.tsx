@@ -83,12 +83,14 @@ function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, se
   }
 
   async function tryGetImageUrl(name: string) {
-    if (!imgUrlsMapRef.current.has(name)) {
-      const url = await getItemImageUrl(name);
-      imgUrlsMapRef.current.set(name, url);
-    }
+    // if (!imgUrlsMapRef.current.has(name)) {
+    //   const url = await getItemImageUrl(name);
+    //   imgUrlsMapRef.current.set(name, url);
+    // }
 
-    return imgUrlsMapRef.current.get(name);
+    // return imgUrlsMapRef.current.get(name);
+
+    return `/items/${name}.png`
   }
   
 
