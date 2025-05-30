@@ -29,7 +29,7 @@ function Sidebar({ selectedRecipe }: { selectedRecipe: recipeData | undefined })
         {activeTab === 0 && selectedRecipe && (
           <div>
             <h3>{selectedRecipe.result.name}</h3>
-            <img src={selectedRecipe.result.imageUrl} />
+            <img src={`/items/${selectedRecipe.result.name}.png`} />
             <p>Some funny info goes here</p>
           </div>
         )}

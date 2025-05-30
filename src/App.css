@@ -9,7 +9,6 @@
 }
 
 .left-side {
-  margin-left: 2vw;
   margin-right: 2vw;
   width: 65%;
 }
@@ -19,6 +18,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  margin-left: 2vw;
 
   padding-bottom: 30px;
   background-color: #1a1a1a;

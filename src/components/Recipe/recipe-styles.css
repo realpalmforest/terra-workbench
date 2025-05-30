@@ -2,15 +2,15 @@
     display: flex;
     column-gap: 40px;
 
-    height: 65px;
+    height: 60px;
     width: auto;
     
     text-align: start;
-    font-size: 0.9em;
+    font-size: 0.8em;
 
     background-color: #1a1a1a;
 
-    padding: 20px 25px 20px 20px;
+    padding: 15px 25px 15px 15px;
     border-radius: 16px;
     border: 1px solid transparent;
 
@@ -29,7 +29,7 @@
 .right-recipe-side {
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: 7px;
 }
 
 .name {
@@ -41,6 +41,9 @@
 .ingredients-container {
     display: flex;
     column-gap: 30px;
+
+    min-height: 30px;
+    height: 30px;
 }
 
 img {
@@ -53,7 +56,7 @@ img {
 }
 
 .ingredient-image {
-    height: 35px;
+    height: 100%;
     width: auto;
 }
 
