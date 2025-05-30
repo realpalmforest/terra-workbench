@@ -1,8 +1,8 @@
 .search-bar-container {
-    min-height: 30px;
-    max-height: 6vh;
-    margin: 1.5vh 0 1.5vh 0;
-    padding: 1vh 0 1vh 0;
+    height: 50px;
+
+    margin: 15px 0 15px 0;
+    padding: 5px 0 5px 0;
 
     display: flex;
     gap: 20px;

@@ -10,10 +10,10 @@ function SearchBar({ paramsChanged }: { paramsChanged: (params: searchParams) =>
   useEffect(() => {
     const timeout = setTimeout(() => {
       paramsChanged(params);
-    }, 300);
+    }, 500);
 
     return () => clearTimeout(timeout);
-  }, [params]);
+  }, [params, paramsChanged]);
 
   return (
     <div className='search-bar-container'>

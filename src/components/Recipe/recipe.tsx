@@ -1,11 +1,11 @@
-import { recipeData } from '../RecipeBrowser/recipe-browser'
+import { recipeData } from '../../App';
 import './recipe-styles.css'
 
 function Recipe({recipeData, onClick}: {recipeData: recipeData, onClick: () => void}) {
   return (
     <div className='recipe' onClick={() => { onClick() }}>
       <div className='left-recipe-side' style={{display: "flex"}}>
-        <img className='item-image' src={recipeData.result.imageUrl ?? './src/assets/undefined.gif'}/>
+        <img className='item-image' src={recipeData.result.imageUrl ?? './src/assets/undefined.gif'} title={recipeData.result.name} />
         <span className='quantity-label'>{recipeData.result.quantity > 1 ? recipeData.result.quantity : ""}</span>
       </div>
       <div className='right-recipe-side'>
@@ -14,7 +14,7 @@ function Recipe({recipeData, onClick}: {recipeData: recipeData, onClick: () => v
           {
             recipeData.ingredients.map((ingredient) => (
               <div style={{display: "flex"}} key={`${recipeData.result.name}.${recipeData.ingredients.indexOf(ingredient)}`} >
-                <img className='ingredient-image' src={ingredient.imageUrl ?? './src/assets/undefined.gif'}/>
+                <img className='ingredient-image' src={ingredient.imageUrl ?? './src/assets/undefined.gif'} title={ingredient.name} />
                 <span className='quantity-label'>{ingredient.quantity > 1 ? ingredient.quantity : ""}</span>
               </div>
             ))

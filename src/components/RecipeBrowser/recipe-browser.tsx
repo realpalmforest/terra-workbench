@@ -23,7 +23,8 @@ function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, se
         quantity: 0,
         imageUrl: undefined
       },
-      ingredients: []
+      ingredients: [],
+      id: recipe.id
     }));
     setRecipeDatas(initialDatas);
 
@@ -31,21 +32,21 @@ function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, se
     for (let i = 0; i < recipesJson.length; i++) {
       const recipe = recipesJson[i];
 
-      const saved = localStorage.getItem("recipes") as string;
-      let savedRecipe;
-      if(saved) {
-        savedRecipe = (JSON.parse(saved) as recipeData[]).find(rec => rec.result.name == recipe.result.name);
-      }
+      // const saved = localStorage.getItem("recipes") as string;
+      // let savedRecipe;
+      // if(saved) {
+      //   savedRecipe = (JSON.parse(saved) as recipeData[]).find(rec => rec.result.name == recipe.result.name);
+      // }
       
-      const recipeObject: recipeData = initialDatas.find(data => data.result.name === recipe.result.name) as recipeData;
+      const recipeObject: recipeData = initialDatas.find(data => data.id === recipe.id) as recipeData;
       
-      // If this recipe is saved, load from localStorage
-      if(saved && savedRecipe) {
-        recipeObject.result = savedRecipe.result;
-        recipeObject.ingredients = savedRecipe.ingredients;
-        setRecipeDatas([...initialDatas]);
-        continue;
-      }
+      // // If this recipe is saved, load from localStorage
+      // if(saved && savedRecipe) {
+      //   recipeObject.result = savedRecipe.result;
+      //   recipeObject.ingredients = savedRecipe.ingredients;
+      //   setRecipeDatas([...initialDatas]);
+      //   continue;
+      // }
 
 
       const result: item = {
@@ -73,12 +74,12 @@ function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, se
       setRecipeDatas([...initialDatas]);
       
       // If no recipes are saved, save only this one
-      if(!saved) {
-        localStorage.setItem("recipes", JSON.stringify([ recipeObject ]));
-      // Otherwise if this one is not saved yet, save it.
-      } else if (!savedRecipe){
-        localStorage.setItem("recipes", JSON.stringify([...JSON.parse(saved), recipeObject]))
-      }
+      // if(!saved) {
+      //   localStorage.setItem("recipes", JSON.stringify([ recipeObject ]));
+      // // Otherwise if this one is not saved yet, save it.
+      // } else if (!savedRecipe){
+      //   localStorage.setItem("recipes", JSON.stringify([...JSON.parse(saved), recipeObject]))
+      // }
     }
   }
 
@@ -118,8 +119,8 @@ function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, se
             }
 
             return false;
-          }).map(recipeData => (
-            <Recipe key={recipeData.result.name} recipeData={recipeData} onClick={() => {
+          }).map((recipeData, index) => (
+            <Recipe key={index} recipeData={recipeData} onClick={() => {
               setSelectedRecipe(recipeData)
             }} />
           ))
