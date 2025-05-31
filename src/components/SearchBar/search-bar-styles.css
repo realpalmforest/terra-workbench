@@ -13,10 +13,48 @@
 
 .search-bar-container input[type='text'] {
     width: 300px;
+    padding-right: 40px;
 }
 
 .search-bar-container span {
     font-size: 1.2em;
     margin-top: -3px;
     margin-left: 10px;
+}
+
+.search-box-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.clear-search-icon {
+    width: 40px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    color: rgba(255, 255, 255, 0.411);
+    cursor: pointer;
+
+    transition: color 0.3s ease, transform 0.3s ease;
+    transform-origin: center;
+    will-change: transform;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.clear-search-icon:hover {
+    color: rgba(255, 255, 255, 0.562);
+    transform: scale(1.1);
+}
+
+.clear-search-icon svg {
+    height: 50%;
+    width: auto;
+    
 }

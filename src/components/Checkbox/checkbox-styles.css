@@ -1,0 +1,29 @@
+.checkbox {
+  height: 40px;
+  width: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+}
+
+.checkbox-checked {
+  background-color: #1F8EC1;
+
+  -webkit-transition: background-color 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.checkbox .checkmark-icon {
+  opacity: 0;
+}
+
+.checkbox-checked .checkmark-icon {
+  min-width: 16px;
+  min-height: 16px;
+
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}

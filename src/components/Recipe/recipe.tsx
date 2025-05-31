@@ -8,7 +8,7 @@ function Recipe({recipeData, onClick}: {recipeData: recipeData, onClick: () => v
       <div className='left-recipe-side' style={{display: "flex"}}>
         <img className='item-image' src={`/items/${recipeData.result.name}.png`} title={recipeData.result.name} onError={(e) => {
           (e.target as HTMLImageElement).onerror = null;
-          (e.target as HTMLImageElement).src = 'undefined.gif'
+          (e.target as HTMLImageElement).src = 'images/undefined.gif'
         }}/>
         <span className='quantity-label'>{recipeData.result.quantity > 1 ? recipeData.result.quantity : ""}</span>
       </div>
@@ -21,7 +21,7 @@ function Recipe({recipeData, onClick}: {recipeData: recipeData, onClick: () => v
               <div style={{display: "flex"}} key={`${recipeData.result.name}.ingredient${recipeData.ingredients.indexOf(ingredient)}`} >
                 <img className='ingredient-image' src={`/items/${ingredient.name}.png`} title={ingredient.name} onError={(e) => {
                   (e.target as HTMLImageElement).onerror = null;
-                  (e.target as HTMLImageElement).src = 'undefined.gif'
+                  (e.target as HTMLImageElement).src = 'images/undefined.gif'
                 }}/>
                 <span className='quantity-label'>{ingredient.quantity > 1 ? ingredient.quantity : ""}</span>
               </div>

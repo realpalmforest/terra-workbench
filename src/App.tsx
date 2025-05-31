@@ -19,9 +19,10 @@ function App() {
   
   return (
     <>
+      <div className='page-background'/>
       <div className='left-side'>
         <div className='header'>
-          <img className='icon' src='./icon.png'/>
+          <img className='icon' src='images/icon.png'/>
           <h1>TerraWorkbench</h1>
         </div>
 

@@ -8,11 +8,11 @@
     text-align: start;
     font-size: 0.8em;
 
-    background-color: #1a1a1a;
+    background-color: #1a1a1ac7;
 
     padding: 15px 25px 15px 15px;
     border-radius: 16px;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
 
     cursor: pointer;
     transition: border-color 0.25s;
@@ -23,7 +23,7 @@
 }
 
 .recipe:hover {
-    border-color: #464aa1;
+    border-color: #1f8ec1ce;
 }
 
 .right-recipe-side {

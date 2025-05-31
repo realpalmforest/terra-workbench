@@ -17,11 +17,8 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #1F8EC1;
   text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
 body {
@@ -48,7 +45,7 @@ button, input {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #1A749E;
 }
 button:focus,
 button:focus-visible {
@@ -60,41 +57,13 @@ input {
   cursor: text;
 }
 
-.checkbox {
-  height: 40px;
-  width: 40px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.checkbox-checked {
-  background-color: #646cff;
-
-  -webkit-transition: background-color 0.3s ease-in-out;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.checkbox .checkmark-icon {
-  opacity: 0;
-}
-
-.checkbox-checked .checkmark-icon {
-  min-width: 16px;
-  min-height: 16px;
-
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
-}
-
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: #121d27;
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #1F8EC1;
   }
   button {
     background-color: #f9f9f9;

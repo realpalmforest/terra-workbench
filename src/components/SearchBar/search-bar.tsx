@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { searchParams } from '../../App';
 import './search-bar-styles.css';
 
-import { FaCheck } from "react-icons/fa";
+import { MdClear } from "react-icons/md";
+
 import { useCookies } from 'react-cookie';
+import Checkbox from '../Checkbox/checkbox';
 
 function SearchBar({ paramsChanged }: { paramsChanged: (params: searchParams) => void }) {
   const [cookies, setCookie] = useCookies(['searchParams'])
@@ -43,21 +45,17 @@ function SearchBar({ paramsChanged }: { paramsChanged: (params: searchParams) =>
 
   return (
     <div className='search-bar-container'>
-      <input type='text' placeholder='Search...' value={params.query} onChange={(e) => {setParams({ ...params, query: e.target.value })}}/>
+      <div className='search-box-container' >
+        <input type='text' placeholder='Search...' value={params.query} onChange={(e) => {setParams({ ...params, query: e.target.value })}}/>
+        <div className='clear-search-icon' onClick={() => setParams({ ...params, query: "" })}><MdClear /></div>
+      </div>
+      
       
       <span>Search Ingredients</span>
-      <button 
-        className={params.searchIngredients ? "checkbox checkbox-checked" : "checkbox"} 
-        onClick={() => {setParams({ ...params, searchIngredients: !params.searchIngredients })}}>
-          <FaCheck className='checkmark-icon' />
-      </button>
+      <Checkbox valueChanged={(value) => setParams({ ...params, searchIngredients: value })}/>
 
       <span>Show Alternatives</span>
-      <button 
-        className={params.showAlternatives ? "checkbox checkbox-checked" : "checkbox"} 
-        onClick={() => {setParams({ ...params, showAlternatives: !params.showAlternatives })}}>
-          <FaCheck className='checkmark-icon' />
-      </button> 
+      <Checkbox valueChanged={(value) => setParams({ ...params, showAlternatives: value })}/>
     </div>
   )
 }
