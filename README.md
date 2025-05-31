@@ -1,4 +1,4 @@
-<img src="images/icon-large.png" alt="icon" width="200"/>
+<img src="public/images/icon-large.png" alt="icon" width="200"/>
 
 # TerraWorkbench
 **A tool for browsing Terraria recipes and planning crafting**
