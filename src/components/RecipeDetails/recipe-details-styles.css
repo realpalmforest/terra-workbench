@@ -1,12 +1,44 @@
 .recipe-details-view {
-  
+  padding: 0 15px 0 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .recipe-details-view h2 {
-  font-size: 2em;
+  font-size: 2.2em;
   margin-top: 10px;
+}
+
+.recipe-details-view h3 {
+  font-size: 1.4em;
 }
 
 .result-item-image {
   height: 100px;
+}
+
+.item-tooltip {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.workstation-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.workstation-image {
+  height: 60px;
+}
+
+.item-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 500px;
+
+  overflow-y: auto;
 }

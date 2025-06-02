@@ -2,7 +2,7 @@ import Recipe from '../Recipe/recipe';
 import './recipe-browser-styles.css'
 
 import { useEffect, useState } from 'react'
-import { recipeData, item, searchParams } from '../../App';
+import { recipeData, itemData, searchParams } from '../../App';
 
 import recipesJson from '../../data/recipes.json'
 
@@ -31,7 +31,7 @@ function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, se
       const recipeData = recipesJson[i];
       const recipe = initialDatas.find(data => data.id === recipeData.id) as recipeData;
 
-      const result: item = {
+      const result: itemData = {
         name: recipeData.result.name,
         quantity: recipeData.result.quantity,
       };

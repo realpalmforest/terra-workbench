@@ -5,8 +5,8 @@ import Sidebar from './components/Sidebar/sidebar'
 import SearchBar from './components/SearchBar/search-bar'
 import RecipeBrowser from './components/RecipeBrowser/recipe-browser'
 
-export type recipeData = { result: item, ingredients: item[], id: number }
-export type item = { name: string, quantity: number }
+export type recipeData = { result: itemData, ingredients: itemData[], id: number }
+export type itemData = { name: string, quantity: number }
 export type searchParams = { query: string, searchIngredients: boolean, showAlternatives: boolean }
 
 function App() {
@@ -19,7 +19,6 @@ function App() {
   
   return (
     <>
-      <div className='page-background'/>
       <div className='left-side'>
         <div className='header'>
           <img className='icon' src='images/icon.png'/>

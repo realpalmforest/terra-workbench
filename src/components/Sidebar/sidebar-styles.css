@@ -1,7 +1,8 @@
 .sidebar {
-    padding: 10px;
-    width: 35%;
+    padding: 10px 0 10px 10px;
     background-color: #24242400;
+
+    width: 25%;
 
     --light-gray: #333333;
 }
