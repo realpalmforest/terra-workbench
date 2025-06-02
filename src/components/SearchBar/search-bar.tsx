@@ -50,12 +50,14 @@ function SearchBar({ paramsChanged }: { paramsChanged: (params: searchParams) =>
         <div className='clear-search-icon' onClick={() => setParams({ ...params, query: "" })}><MdClear /></div>
       </div>
       
-      
-      <span>Search Ingredients</span>
-      <Checkbox valueChanged={(value) => setParams({ ...params, searchIngredients: value })}/>
-
-      <span>Show Alternatives</span>
-      <Checkbox valueChanged={(value) => setParams({ ...params, showAlternatives: value })}/>
+      <div className='checkbox-container'>
+        <span>Search Ingredients</span>
+        <Checkbox valueChanged={(value) => setParams({ ...params, searchIngredients: value })}/>
+      </div>
+      <div className='checkbox-container'>
+        <span>Show Alternatives</span>
+        <Checkbox valueChanged={(value) => setParams({ ...params, showAlternatives: value })}/>
+      </div>
     </div>
   )
 }

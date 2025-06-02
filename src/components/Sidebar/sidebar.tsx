@@ -4,7 +4,8 @@ import { useState } from 'react'
 import { FaCog } from "react-icons/fa";
 import { FaCalculator } from "react-icons/fa";
 import { FaBookOpen } from "react-icons/fa";
-import { recipeData } from '../RecipeBrowser/recipe-browser';
+import { recipeData } from '../../App';
+import RecipeDetails from '../RecipeDetails/recipe-details';
 
 function Sidebar({ selectedRecipe }: { selectedRecipe: recipeData | undefined }) {
   const [activeTab, setActiveTab] = useState(0);
@@ -12,26 +13,22 @@ function Sidebar({ selectedRecipe }: { selectedRecipe: recipeData | undefined })
   return (
     <div className='sidebar'>
       <div className='tab-container'>
-        <button className='tab-button' style={activeTab == 0 ? {backgroundColor: "var(--light-gray)"} : {}} onClick={() => setActiveTab(0)} >
+        <button className={activeTab === 0 ? "tab-button tab-button-active" : 'tab-button'} onClick={() => setActiveTab(0)} >
           <FaBookOpen className='tab-icon'/>
-          <p>Details</p>
+          <span>Details</span>
         </button>
-        <button className='tab-button' style={activeTab == 1 ? {backgroundColor: "var(--light-gray)"} : {}} onClick={() => setActiveTab(1)} >
+        <button className={activeTab === 1 ? "tab-button tab-button-active" : 'tab-button'} onClick={() => setActiveTab(1)} >
           <FaCalculator className='tab-icon'/>
-          <p>Calculator</p>
+          <span>Calculator</span>
         </button>
-        <button className='tab-button' style={activeTab == 2 ? {backgroundColor: "var(--light-gray)"} : {}} onClick={() => setActiveTab(2)} > 
+        <button className={activeTab === 2 ? "tab-button tab-button-active" : 'tab-button'} onClick={() => setActiveTab(2)} > 
           <FaCog className='tab-icon' />
-          <p>Options</p>
+          <span>Options</span>
         </button>
       </div>
       <div className='tab-content'>
         {activeTab === 0 && selectedRecipe && (
-          <div>
-            <h3>{selectedRecipe.result.name}</h3>
-            <img src={`/items/${selectedRecipe.result.name}.png`} />
-            <p>Some funny info goes here</p>
-          </div>
+          <RecipeDetails selectedRecipe={selectedRecipe}/>
         )}
         {activeTab === 1 && (
           <div>
