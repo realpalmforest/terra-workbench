@@ -31,7 +31,7 @@ function App() {
 
       <Sidebar selectedRecipe={selectedRecipe} />
 
-      <Footer/>
+      {/* <Footer/> */}
     </>
   )
 }

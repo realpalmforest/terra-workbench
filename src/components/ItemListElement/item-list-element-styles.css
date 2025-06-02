@@ -3,19 +3,25 @@
   justify-content: center;
   gap: 25px;
 
-  background-color: #1a1a1a;
-  padding: 10px;
+  background-color: #222222;
+  padding: 8px;
   border-radius: 15px;
+
+  width: 92%;
+
+  scroll-snap-align: start;
 }
 
 .list-element-container img {
-  height: 30px;
+  height: 27px;
 }
 
 .list-element-container span {
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: bold;
+}
 
+.list-element-container .ingredient-name {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

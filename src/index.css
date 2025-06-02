@@ -15,12 +15,6 @@
   overflow: hidden;
 }
 
-a {
-  font-weight: 500;
-  color: #1F8EC1;
-  text-decoration: inherit;
-}
-
 body {
   margin: 0;
   display: flex;

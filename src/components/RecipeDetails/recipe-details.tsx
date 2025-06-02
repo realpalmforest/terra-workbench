@@ -11,12 +11,15 @@ function RecipeDetails({ selectedRecipe }: { selectedRecipe: recipeData }) {
       <span className='item-tooltip'>Tooltip</span>
 
       <div className='workstation-container'>
-        {selectedRecipe.ingredients.map(workstation=> (
+        {/* {selectedRecipe.ingredients.map(workstation=> (
           <img src={`items/${workstation.name}.png`} className='workstation-image' />
-        ))}
+        ))} */}
+        <img src={`items/Work Bench.png`} className='workstation-image' title='PLACEHOLDER' />
+        <img src={`items/Bottle.png`} className='workstation-image' title='PLACEHOLDER' />
+        <img src={`items/Titanium Forge.png`} className='workstation-image' title='PLACEHOLDER' />
+        <img src={`items/Ancient Manipulator.png`} className='workstation-image' title='PLACEHOLDER' />
       </div>
 
-      <h3>Ingredients</h3>
       <div className='item-container'>
         {selectedRecipe.ingredients.map(ingredient => (
           <ItemListElement itemData={ingredient} key={ingredient.name}/>
