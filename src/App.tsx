@@ -6,7 +6,7 @@ import SearchBar from './components/SearchBar/search-bar'
 import RecipeBrowser from './components/RecipeBrowser/recipe-browser'
 
 export type recipeData = { result: itemData, ingredients: itemData[], id: number }
-export type itemData = { name: string, quantity: number }
+export type itemData = { name: string, tooltip: string, quantity: number }
 export type searchParams = { query: string, searchIngredients: boolean, showAlternatives: boolean }
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
     <>
       <div className='left-side'>
         <div className='header'>
-          <img className='icon' src='images/icon.png'/>
+          <img className='icon' src='./images/icon.png'/>
           <h1>TerraWorkbench</h1>
         </div>
 

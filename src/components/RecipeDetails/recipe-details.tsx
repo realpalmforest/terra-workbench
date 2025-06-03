@@ -7,17 +7,16 @@ function RecipeDetails({ selectedRecipe }: { selectedRecipe: recipeData }) {
   return (
     <div className='recipe-details-view'>
       <h2>{selectedRecipe.result.name}</h2>
-      <img src={`items/${selectedRecipe.result.name}.png`} className='result-item-image'/>
-      <span className='item-tooltip'>Tooltip</span>
+      <img src={`./items/${selectedRecipe.result.name}.png`} className='result-item-image'/>
+      <span className='item-tooltip'>{selectedRecipe.result.tooltip}</span>
 
       <div className='workstation-container'>
-        {/* {selectedRecipe.ingredients.map(workstation=> (
-          <img src={`items/${workstation.name}.png`} className='workstation-image' />
+        {/* {selectedRecipe.workstations.map(workstation => (
+          <img src={`./items/${workstation}.png`} className='workstation-image' onError={(e) => {
+          (e.target as HTMLImageElement).onerror = null;
+          (e.target as HTMLImageElement).src = './images/undefined.gif'
+        }}/>
         ))} */}
-        <img src={`items/Work Bench.png`} className='workstation-image' title='PLACEHOLDER' />
-        <img src={`items/Bottle.png`} className='workstation-image' title='PLACEHOLDER' />
-        <img src={`items/Titanium Forge.png`} className='workstation-image' title='PLACEHOLDER' />
-        <img src={`items/Ancient Manipulator.png`} className='workstation-image' title='PLACEHOLDER' />
       </div>
 
       <div className='item-container'>
