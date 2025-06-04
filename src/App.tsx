@@ -1,9 +1,10 @@
-import './App.css'
-import { useEffect, useState } from 'react'
-import Footer from './components/Footer/footer'
-import Sidebar from './components/Sidebar/sidebar'
-import SearchBar from './components/SearchBar/search-bar'
-import RecipeBrowser from './components/RecipeBrowser/recipe-browser'
+import './App.css';
+
+import { useEffect, useState } from 'react';
+import Footer from './components/Footer/footer';
+import Sidebar from './components/Sidebar/sidebar';
+import SearchBar from './components/SearchBar/search-bar';
+import RecipeBrowser from './components/RecipeBrowser/recipe-browser';
 
 export type recipeData = { result: itemData, ingredients: itemData[], id: number }
 export type itemData = { name: string, tooltip: string, quantity: number }
