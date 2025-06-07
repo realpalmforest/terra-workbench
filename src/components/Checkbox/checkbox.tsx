@@ -3,8 +3,7 @@ import './checkbox-styles.css';
 
 import { FaCheck } from "react-icons/fa";
 
-function Checkbox({ valueChanged }: { valueChanged: (value: boolean) => void }) {
-  const [value, setValue] = useState<boolean>(false);
+function Checkbox({ value, valueChanged }: { value: boolean, valueChanged: (value: boolean) => void }) {
   
   useEffect(() => {
     valueChanged(value);
@@ -13,7 +12,7 @@ function Checkbox({ valueChanged }: { valueChanged: (value: boolean) => void }) 
   return (
     <button 
         className={value ? "checkbox checkbox-checked" : "checkbox"} 
-        onClick={() => {setValue(!value)}}>
+        onClick={() => {valueChanged(!value)}}>
           <FaCheck className='checkmark-icon' />
     </button>
   )

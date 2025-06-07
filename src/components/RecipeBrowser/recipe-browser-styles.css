@@ -1,11 +1,16 @@
 .recipe-browser {
+  display: flex;
+  flex-direction: column;
+
+  max-height: calc(100vh - 260px);
+}
+
+.recipes-container {
     display: flex;
     flex-direction: row;
     align-items: start;
     flex-wrap: wrap;
     gap: 20px;
-
-    max-height: calc(100vh - 260px);
 
     overflow-y: auto;
     overflow-x: hidden;
@@ -14,12 +19,20 @@
     justify-content: left;
     padding-left: 2vw;
 
-
     scroll-snap-type: y mandatory;
     
     scroll-behavior: smooth;
 }
-
-.recipe-browser  > * {
+.recipes-container > * {
   direction: ltr;
+}
+
+.recipes-page-selector {
+  padding-top: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
 }

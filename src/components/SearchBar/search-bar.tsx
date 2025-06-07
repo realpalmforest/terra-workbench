@@ -52,11 +52,11 @@ function SearchBar({ paramsChanged }: { paramsChanged: (params: searchParams) =>
       
       <div className='checkbox-container'>
         <span>Search Ingredients</span>
-        <Checkbox valueChanged={(value) => setParams({ ...params, searchIngredients: value })}/>
+        <Checkbox value={params.searchIngredients} valueChanged={(value) => setParams({ ...params, searchIngredients: value })}/>
       </div>
       <div className='checkbox-container'>
         <span>Show Alternatives</span>
-        <Checkbox valueChanged={(value) => setParams({ ...params, showAlternatives: value })}/>
+        <Checkbox value={params.showAlternatives} valueChanged={(value) => setParams({ ...params, showAlternatives: value })}/>
       </div>
     </div>
   )

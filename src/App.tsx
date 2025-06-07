@@ -17,6 +17,10 @@ function App() {
   useEffect(() => {
     console.log(selectedRecipe);
   }, [selectedRecipe]);
+
+  useEffect(() => {
+    console.log(searchParams.showAlternatives);
+  }, [searchParams]);
   
   return (
     <>
