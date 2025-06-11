@@ -12,7 +12,7 @@ function Sidebar({ selectedRecipe }: { selectedRecipe: recipeData | undefined })
 
   return (
     <div className='sidebar'>
-      <div className='tab-container'>
+      {/* <div className='tab-container'>
         <button className={activeTab === 0 ? "tab-button tab-button-active" : 'tab-button'} onClick={() => setActiveTab(0)} >
           <FaBookOpen className='tab-icon'/>
           <span>Details</span>
@@ -25,7 +25,7 @@ function Sidebar({ selectedRecipe }: { selectedRecipe: recipeData | undefined })
           <FaCog className='tab-icon' />
           <span>Options</span>
         </button>
-      </div>
+      </div> */}
       <div className='tab-content'>
         {activeTab === 0 && selectedRecipe && (
           <RecipeDetails selectedRecipe={selectedRecipe}/>

@@ -11,12 +11,12 @@ function RecipeDetails({ selectedRecipe }: { selectedRecipe: recipeData }) {
       <span className='item-tooltip'>{selectedRecipe.result.tooltip}</span>
 
       <div className='workstation-container'>
-        {/* {selectedRecipe.workstations.map(workstation => (
-          <img src={`./items/${workstation}.png`} className='workstation-image' onError={(e) => {
+        {selectedRecipe.workstations.map(workstation => (
+          <img src={`./items/${workstation.name}.png`} className='workstation-image' title={workstation.tooltip} onError={(e) => {
           (e.target as HTMLImageElement).onerror = null;
           (e.target as HTMLImageElement).src = './images/undefined.gif'
         }}/>
-        ))} */}
+        ))}
       </div>
 
       <div className='item-container'>

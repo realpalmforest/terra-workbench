@@ -1,10 +1,10 @@
 import Recipe from '../Recipe/recipe';
 import './recipe-browser-styles.css'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { recipeData, searchParams } from '../../App';
 
-import recipesJson from '../../data/recipes.json'
+import recipesJson from '../../data/recipes_Vanilla.json'
 
 
 function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, setSelectedRecipe: (newRecipe: recipeData | undefined) => void }) {
@@ -12,10 +12,14 @@ function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, se
   const [pageNumber, setPageNumber] = useState<number>(0);
   const [pageSize, setPageSize] = useState<number>(100);
 
+  useEffect(() => {
+    setPageNumber(0);
+  }, [params]);
+
   return (
     <div className='recipe-browser'>
       <div className='recipes-container'>
-        {applySearchParams(recipeDatas.slice(pageSize * pageNumber, pageSize * (pageNumber + 1))).map(recipeData => (
+        {applySearchParams().slice(pageSize * pageNumber, pageSize * (pageNumber + 1)).map(recipeData => (
           <Recipe key={recipeData.id} recipeData={recipeData} onClick={() => {
             setSelectedRecipe(recipeData)
           }} />
@@ -23,20 +27,20 @@ function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, se
       </div>
 
       <div className='recipes-page-selector'>
-        <button onClick={() => setPageNumber(pageNumber - 1)}>Previous</button>
-        <span>Page {pageNumber}</span>
-        <button onClick={() => setPageNumber(pageNumber + 1)}>Next</button>
+        <button onClick={() => setPageNumber(pageNumber - 1)} disabled={pageNumber <= 0} >Previous</button>
+        <span>Page {pageNumber + 1}</span>
+        <button onClick={() => setPageNumber(pageNumber + 1)} disabled={(pageNumber + 1) * pageSize >= applySearchParams().length} >Next</button>
       </div>
     </div>
   )
 
 
 
-  function applySearchParams(recipes: recipeData[]) {
+  function applySearchParams() {
     const query = params.query.toLowerCase().trim();
 
-    return recipes.filter((data, index) => {
-      if(!params.showAlternatives && index > 0 && data.result.name == recipes[index - 1].result.name) {
+    return recipeDatas.filter((data, index) => {
+      if(!params.showAlternatives && index > 0 && data.result.name == recipeDatas[index - 1].result.name) {
         return false;
       }
 
