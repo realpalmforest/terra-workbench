@@ -1,14 +1,14 @@
 import './sidebar-styles.css'
 import { useState } from 'react'
 
-import { FaCog } from "react-icons/fa";
-import { FaCalculator } from "react-icons/fa";
-import { FaBookOpen } from "react-icons/fa";
+// import { FaCog } from "react-icons/fa";
+// import { FaCalculator } from "react-icons/fa";
+// import { FaBookOpen } from "react-icons/fa";
 import { recipeData } from '../../App';
 import RecipeDetails from '../RecipeDetails/recipe-details';
 
 function Sidebar({ selectedRecipe }: { selectedRecipe: recipeData | undefined }) {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab] = useState(0);
 
   return (
     <div className='sidebar'>

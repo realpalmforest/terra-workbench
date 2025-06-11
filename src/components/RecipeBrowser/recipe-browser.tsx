@@ -8,9 +8,9 @@ import recipesJson from '../../data/recipes_Vanilla.json'
 
 
 function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, setSelectedRecipe: (newRecipe: recipeData | undefined) => void }) {
-  const [recipeDatas, setRecipeDatas] = useState<recipeData[]>(recipesJson as recipeData[]);
+  const [recipeDatas] = useState<recipeData[]>(recipesJson as recipeData[]);
   const [pageNumber, setPageNumber] = useState<number>(0);
-  const [pageSize, setPageSize] = useState<number>(100);
+  const [pageSize] = useState<number>(100);
 
   useEffect(() => {
     setPageNumber(0);

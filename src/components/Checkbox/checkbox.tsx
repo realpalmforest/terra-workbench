@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import './checkbox-styles.css';
 
 import { FaCheck } from "react-icons/fa";
