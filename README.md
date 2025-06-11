@@ -12,8 +12,7 @@
 ## 🤝 Contributing
 **To contribute to this project:**
 
-1. Clone it with `git clone https://github.com/realpalmforest/terra-workbench.git`
-2. Install node modules with `npm install`
-3. Modify the project and test by running `npm run dev`
-
-**Finally create a pull request to this repository!**
+1. Fork and clone this repository
+2. Install node packages with `npm i`
+3. Modify the project and test with `npm run dev`
+4. Create a pull request once you're done
