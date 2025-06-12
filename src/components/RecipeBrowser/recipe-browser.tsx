@@ -1,24 +1,31 @@
 import Recipe from '../Recipe/recipe';
 import './recipe-browser-styles.css'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { recipeData, searchParams } from '../../App';
 
 import recipesJson from '../../data/recipes_Vanilla.json'
-
 
 function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, setSelectedRecipe: (newRecipe: recipeData | undefined) => void }) {
   const [recipeDatas] = useState<recipeData[]>(recipesJson as recipeData[]);
   const [pageNumber, setPageNumber] = useState<number>(0);
   const [pageSize] = useState<number>(100);
+  const browserRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
+  // Reset to page 1 when search params change
+  useEffect(() => { 
     setPageNumber(0);
+    resetScroll();
   }, [params]);
+
+  // Scroll to the top when the page is changes
+  useEffect(() => {
+    resetScroll();
+  }, [pageNumber]);
 
   return (
     <div className='recipe-browser'>
-      <div className='recipes-container'>
+      <div className='recipes-container' ref={browserRef} >
         {applySearchParams().slice(pageSize * pageNumber, pageSize * (pageNumber + 1)).map(recipeData => (
           <Recipe key={recipeData.id} recipeData={recipeData} onClick={() => {
             setSelectedRecipe(recipeData)
@@ -64,6 +71,12 @@ function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, se
 
       return false;
     });
+  }
+
+  function resetScroll() {
+    if(browserRef.current) {
+      (browserRef.current.firstChild as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }
 
