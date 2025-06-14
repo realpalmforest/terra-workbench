@@ -49,6 +49,7 @@
 
     .left-side {
         display: flex;
+        margin: 0;
 
         .quantity-label {
             margin-bottom: -15px;
@@ -60,7 +61,7 @@
     .right-side {
         display: flex;
         flex-direction: column;
-        row-gap: 7px;
+        row-gap: 10px;
 
         h2 {
             margin: -10px 0 0 0;
