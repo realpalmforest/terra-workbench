@@ -1,10 +1,12 @@
+import './search-bar-styles.scss';
+
 import { useEffect, useState } from 'react';
-import { searchParams } from '../../App';
-import './search-bar-styles.css';
 
 import { MdClear } from "react-icons/md";
-
 import { useCookies } from 'react-cookie';
+
+import { searchParams } from '../../App';
+
 import Checkbox from '../Checkbox/checkbox';
 
 function SearchBar({ paramsChanged }: { paramsChanged: (params: searchParams) => void }) {

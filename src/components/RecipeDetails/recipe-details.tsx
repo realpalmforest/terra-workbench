@@ -1,4 +1,4 @@
-import './recipe-details-styles.css';
+import './recipe-details-styles.scss';
 
 import { recipeData } from '../../App';
 import ItemListElement from '../ItemListElement/item-list-element';
@@ -7,8 +7,8 @@ function RecipeDetails({ selectedRecipe }: { selectedRecipe: recipeData }) {
   return (
     <div className='recipe-details-view'>
       <h2>{selectedRecipe.result.name}</h2>
-      <img src={`./items/${selectedRecipe.result.name}.png`} className='result-item-image'/>
-      <span className='item-tooltip'>{selectedRecipe.result.tooltip}</span>
+      <img src={`./items/${selectedRecipe.result.name}.png`} className='result-image'/>
+      <span className='result-tooltip'>{selectedRecipe.result.tooltip}</span>
 
       <div className='workstation-container'>
         {selectedRecipe.workstations.map(workstation => (

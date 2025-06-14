@@ -1,0 +1,72 @@
+@use '../../styles/mixins.scss';
+
+.search-bar-container {
+    height: 30px;
+
+    margin: 15px 0 15px 0;
+    padding: 5px 0 5px 0;
+
+    display: flex;
+    gap: 50px;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.search-box-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    input {
+        @include mixins.field;
+
+        width: 300px;
+        padding-right: 40px;
+        outline: none;
+
+        cursor: text;
+    }
+
+    .clear-search-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 40px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+
+        color: rgba(255, 255, 255, 0.411);
+        cursor: pointer;
+
+        transition: color 0.3s ease, transform 0.3s ease;
+        transform-origin: center;
+        will-change: transform;
+
+        &:hover {
+            color: rgba(255, 255, 255, 0.562);
+            transform: scale(1.1);
+        }
+
+        svg {
+            height: 50%;
+            width: auto;
+        }
+    }
+}
+
+.checkbox-container {
+    display: flex;
+    gap: 15px;
+
+    align-items: center;
+    margin-top: -5px;
+
+    span {
+        font-size: 1.1em;
+        margin-top: -5px;
+    }
+}

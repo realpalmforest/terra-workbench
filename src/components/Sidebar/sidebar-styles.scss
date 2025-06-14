@@ -1,0 +1,55 @@
+$light-gray: #333333;
+
+.sidebar {
+    width: 25%;
+
+    .tab-container {
+        display: flex;
+        justify-content: start;
+
+        button {
+            border-radius: 10px 10px 0px 0px;
+            border: 2px solid #222222;
+
+            transition: background-color 0.4s, border 0.3s;
+
+            font-weight: bold;
+    
+            height: 45px;
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+    
+            overflow: hidden;
+            width: auto;
+
+            &:hover {
+                border: 2px solid var(--light-gray);
+            }
+
+            span {
+                margin: 0;
+                padding: 0;
+                white-space: nowrap;
+            }
+
+            span {
+                margin: 0;
+                padding: 0;
+                white-space: nowrap;
+            }
+        }
+
+        .tab-button-active {
+            background-color: var(--light-gray);
+            border: 2px solid var(--light-gray);
+        }
+    }
+
+    .tab-content {
+        background-color: #303030;
+        height: 100%;
+        padding: 10px;
+    }
+}

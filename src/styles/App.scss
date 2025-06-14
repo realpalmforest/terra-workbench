@@ -1,0 +1,38 @@
+#root {
+  	width: 100%;
+  	text-align: center;
+
+  	display: flex;
+
+  	image-rendering: pixelated;
+  	image-rendering: crisp-edges;
+}
+
+.left-side {
+  	margin-right: 2vw;
+  	width: 75%;
+
+	.header {
+  		display: flex;
+  		align-items: center;
+  		justify-content: center;
+  		flex-direction: column;
+
+		height: 150px;
+  		margin-left: 2vw;
+  		padding-bottom: 30px;
+
+  		background: #161616;
+
+		img {
+  			height: 175px;
+  			width: auto;
+		}
+
+		h1 {
+  			font-size: 3.2em;
+  			line-height: 1.1;
+  			margin: 0;
+		}
+	}
+}

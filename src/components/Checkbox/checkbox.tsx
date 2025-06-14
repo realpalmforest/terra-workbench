@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import './checkbox-styles.css';
+import './checkbox-styles.scss';
 
 import { FaCheck } from "react-icons/fa";
 

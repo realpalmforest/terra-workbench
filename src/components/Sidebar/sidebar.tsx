@@ -1,4 +1,4 @@
-import './sidebar-styles.css'
+import './sidebar-styles.scss'
 import { useState } from 'react'
 
 // import { FaCog } from "react-icons/fa";
@@ -13,15 +13,15 @@ function Sidebar({ selectedRecipe }: { selectedRecipe: recipeData | undefined })
   return (
     <div className='sidebar'>
       {/* <div className='tab-container'>
-        <button className={activeTab === 0 ? "tab-button tab-button-active" : 'tab-button'} onClick={() => setActiveTab(0)} >
+        <button className={activeTab === 0 ? "tab-button-active" : ''} onClick={() => setActiveTab(0)} >
           <FaBookOpen className='tab-icon'/>
           <span>Details</span>
         </button>
-        <button className={activeTab === 1 ? "tab-button tab-button-active" : 'tab-button'} onClick={() => setActiveTab(1)} >
+        <button className={activeTab === 1 ? "tab-button-active" : ''} onClick={() => setActiveTab(1)} >
           <FaCalculator className='tab-icon'/>
           <span>Calculator</span>
         </button>
-        <button className={activeTab === 2 ? "tab-button tab-button-active" : 'tab-button'} onClick={() => setActiveTab(2)} > 
+        <button className={activeTab === 2 ? "tab-button-active" : ''} onClick={() => setActiveTab(2)} > 
           <FaCog className='tab-icon' />
           <span>Options</span>
         </button>

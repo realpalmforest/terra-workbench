@@ -1,5 +1,5 @@
 import Recipe from '../Recipe/recipe';
-import './recipe-browser-styles.css'
+import './recipe-browser-styles.scss'
 
 import { useEffect, useRef, useState } from 'react'
 import { recipeData, searchParams } from '../../App';
@@ -33,14 +33,13 @@ function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, se
         ))}
       </div>
 
-      <div className='recipes-page-selector'>
+      <div className='page-selector'>
         <button onClick={() => setPageNumber(pageNumber - 1)} disabled={pageNumber <= 0} >Previous</button>
         <span>Page {pageNumber + 1}</span>
         <button onClick={() => setPageNumber(pageNumber + 1)} disabled={(pageNumber + 1) * pageSize >= applySearchParams().length} >Next</button>
       </div>
     </div>
   )
-
 
 
   function applySearchParams() {
@@ -74,7 +73,7 @@ function RecipeBrowser({ params, setSelectedRecipe }: { params: searchParams, se
   }
 
   function resetScroll() {
-    if(browserRef.current) {
+    if(browserRef.current && browserRef.current.firstChild) {
       (browserRef.current.firstChild as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }

@@ -1,0 +1,29 @@
+@use '../../styles/mixins.scss';
+
+.checkbox {
+  	@include mixins.field;
+
+  	height: 40px;
+  	width: 40px;
+
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+
+  	border: 0;
+  	transition: all 0.15s linear;
+}
+
+.checkbox-checked {
+  	background-color: #1F8EC1;
+}
+
+.checkmark-icon {
+  	min-width: 16px;
+  	min-height: 16px;
+  	opacity: 0;
+}
+
+.checkbox-checked .checkmark-icon {
+  	opacity: 1;
+}

@@ -1,7 +1,7 @@
-import './App.css';
+import './styles/App.scss';
 
-import { useEffect, useState } from 'react';
-// import Footer from './components/Footer/footer';
+import { useState } from 'react';
+
 import Sidebar from './components/Sidebar/sidebar';
 import SearchBar from './components/SearchBar/search-bar';
 import RecipeBrowser from './components/RecipeBrowser/recipe-browser';
@@ -13,20 +13,12 @@ export type searchParams = { query: string, searchIngredients: boolean, showAlte
 function App() {
   const [selectedRecipe, setSelectedRecipe] = useState<recipeData>();
   const [searchParams, setSearchParams] = useState<searchParams>({ query: "", searchIngredients: false, showAlternatives: false });
-
-  useEffect(() => {
-    console.log(selectedRecipe);
-  }, [selectedRecipe]);
-
-  useEffect(() => {
-    console.log(searchParams.showAlternatives);
-  }, [searchParams]);
   
   return (
     <>
       <div className='left-side'>
         <div className='header'>
-          <img className='icon' src='./images/icon.png'/>
+          <img src='./images/icon.png'/>
           <h1>TerraWorkbench</h1>
         </div>
 
@@ -35,8 +27,6 @@ function App() {
       </div>
 
       <Sidebar selectedRecipe={selectedRecipe} />
-
-      {/* <Footer/> */}
     </>
   )
 }
