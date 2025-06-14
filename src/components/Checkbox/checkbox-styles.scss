@@ -1,7 +1,7 @@
 @use '../../styles/mixins.scss';
 
 .checkbox {
-  	@include mixins.field;
+  	@include mixins.card;
 
   	height: 40px;
   	width: 40px;

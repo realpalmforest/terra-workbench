@@ -19,7 +19,7 @@
     position: relative;
 
     input {
-        @include mixins.field;
+        @include mixins.card;
 
         width: 300px;
         padding-right: 40px;

@@ -44,7 +44,7 @@
   		justify-content: center;
 
 		button {
-			@include mixins.field;
+			@include mixins.card;
 		}
 	}
 }
