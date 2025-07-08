@@ -16,3 +16,10 @@
 2. Install node packages with `npm i`
 3. Modify the project and test with `npm run dev`
 4. Create a pull request once you're done
+
+## 🗒️ TODO
+- [ ] Pagination with infinite scroll effect
+- [ ] Support for all recipe workstation tiles
+- [ ] Mobile friendly UI and UX
+- [ ] Recipes from popular mods
+- [ ] Light mode 
